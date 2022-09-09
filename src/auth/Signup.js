@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Signup() {
     const [form, setform] = useState();
     const navigate = useNavigate();
+    
     async function handleSubmit(event) {
         event.preventDefault();
         const response = await signup(form)

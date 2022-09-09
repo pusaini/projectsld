@@ -40,7 +40,7 @@ export default function Dashboard() {
                     <Col className="text-start bg-warning"><h4>Dashboard</h4></Col>
                     <Col className="text-center bg-danger"><h4>Welcome To {name.name} </h4></Col>
                     <Col className="text-end bg-warning">
-                        <a  className="btn btn-outline-denger mr-2" href="AddEmployee"><AiOutlineUserAdd width={50} height={50} /></a>
+                        <a className="btn btn-outline-denger mr-2" href="AddEmployee"><AiOutlineUserAdd width={50} height={50} /></a>
                         <button className="btn btn-outline-denger mr-2" onClick={logout} ><AiOutlineLogout width={50} height={50} /></button>
                     </Col>
                 </Row>
@@ -51,7 +51,6 @@ export default function Dashboard() {
                     <tr >
                         <th>#</th>
                         <th>Name</th>
-                        
                         <th>Salary</th>
                         <th>Address</th>
                         <th>Contact No.</th>
@@ -65,17 +64,16 @@ export default function Dashboard() {
                 <tbody>
                     {
                         employee.map((data, i) =>
-                            <tr key={1}>
+                            <tr key={i}>
                                 <td>{i + 1}</td>
                                 <td>{data.name}</td>
-                                
                                 <td>{data.salary}</td>
                                 <td>{data.address}</td>
                                 <td>{data.phone}</td>
                                 <td>{data.email}</td>
-                                <td><a className="btn btn-outline-primary" href=""><AiOutlineFolderView /></a></td>
-                                <td><a className="btn btn-outline-info" href=""><AiFillEdit /></a></td>
-                                <td><a className="btn btn-outline-warning" href=""><AiTwotoneDelete /></a></td>
+                                <td><Link className="btn btn-outline-primary" to={`/employeeDetails/${data._id}`}><AiOutlineFolderView /></Link></td>
+                                <td><Link className="btn btn-outline-info" to={`/editEmployee/${data._id}`}><AiFillEdit /></Link></td>
+                                <td><Link className="btn btn-outline-warning" to={`/deleteEmployee/${data._id}`}><AiTwotoneDelete /></Link></td>
                             </tr>
                         )
                     }
